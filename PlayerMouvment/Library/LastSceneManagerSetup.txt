@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Sean1-playertests.unity
+  isLoaded: 1
+  isActive: 1
