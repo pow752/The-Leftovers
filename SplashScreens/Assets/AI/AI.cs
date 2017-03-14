@@ -7,9 +7,12 @@ public class AI : MonoBehaviour {
     public float speed;
     public Transform player;
 
-    static public GameObject other;
-    public Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
-
+    Rigidbody2D rb;
+    
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void FixedUpdate()
     {

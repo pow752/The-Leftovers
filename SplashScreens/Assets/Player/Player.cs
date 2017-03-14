@@ -8,14 +8,13 @@ public class Player : MonoBehaviour {
     public float HP = 100;
     public float speed;
     // public Rigidbody2D rb;
-    static public GameObject other;
-    public Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+    private Rigidbody2D rb;
 
 
 
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
 
     }
@@ -58,8 +57,6 @@ public class Player : MonoBehaviour {
         if (HP <= 0)
         {
             Destroy(gameObject);
-
-
         }
 
 
