@@ -6,13 +6,20 @@ public class Deaph : MonoBehaviour {
 
     private float Ypos;
     private float Xpos;
+    private int Zpos;
 
-
-	void Update ()
+    void FixedUpdate()
     {
         Ypos = transform.position.y;
         Xpos = transform.position.x;
+        Zpos = (int)transform.position.y;
 
-        transform.position = new Vector3(Xpos, Ypos, Ypos);
+        GetComponent<SpriteRenderer>().sortingOrder = -Zpos;
+        //transform.position = new Vector3(Xpos, Ypos, Ypos);
+    }
+
+    void Update ()
+    {
+
     }
 }
