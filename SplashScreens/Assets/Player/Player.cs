@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
 
-    public float HP = 100;
+    public float HP = 10000;
     public float speed;
     // public Rigidbody2D rb;
     private Rigidbody2D rb;
@@ -58,9 +58,13 @@ public class Player : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        //end of update
+    }
 
+    public void TakeDamage(float dps)
+    {
 
-
+        HP -= dps;
 
     }
 }
