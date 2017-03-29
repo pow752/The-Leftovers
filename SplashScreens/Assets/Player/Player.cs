@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-
+    public GameObject healthbar;
     public float HP = 10000;
     public float speed;
     // public Rigidbody2D rb;
     private Rigidbody2D rb;
-
+    private BarScript hpbar;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
-
+        hpbar = healthbar.GetComponent<BarScript>();
+        hpbar.maxValue = HP;
+        hpbar.value = HP;
     }
 
 
@@ -65,6 +67,6 @@ public class Player : MonoBehaviour {
     {
 
         HP -= dps;
-
+        hpbar.SetValue(HP);
     }
 }

@@ -22,6 +22,17 @@ public class BarScript : MonoBehaviour {
         bar.localScale = new Vector3(ratio, 1, 1);
     }
 
+    public void SetValue(float target)
+    {
+        value = target;
+        if (value < 0)
+            value = 0;
+        if (value > maxValue)
+            value = maxValue;
+
+        UpdateBar();
+    }
+
     public void ChangeValue(float change)
     {
         value += change;
