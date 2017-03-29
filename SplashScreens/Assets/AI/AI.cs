@@ -36,43 +36,46 @@ public class AI : MonoBehaviour {
 
     void FixedUpdate()
     {
-
-        if (!atackPlayer)
+        if(player != null)
         {
-            float z = Mathf.Atan2((Tformplayer.transform.position.y - transform.position.y), (Tformplayer.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
-            //transform.eulerAngles = new Vector3(0, 0, z);
-            heading = Tformplayer.transform.position - transform.position;
-            heading.Normalize();
-            animator.SetFloat("Xheading", heading.x);
-            animator.SetFloat("Yheading", heading.y);
-            rb.AddForce(heading * speed);
-            animator.SetBool("Firing", false);
-        }
-        else
-        {
-            heading = Tformplayer.transform.position - transform.position;
-            heading.Normalize();
-            animator.SetFloat("Xheading", heading.x);
-            animator.SetFloat("Yheading", heading.y);
 
-            animator.SetBool("Firing", true);
-            UpdateTimer -= Time.deltaTime;
-            //firing.Play();
-
-            if (UpdateTimer < 0)
+            if (!atackPlayer)
             {
-                firing.Play();
-                UpdateTimer += UpdateTime;
-                playerDps.GetComponent<Player>().TakeDamage(Dps);
-
+                float z = Mathf.Atan2((Tformplayer.transform.position.y - transform.position.y), (Tformplayer.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
+                //transform.eulerAngles = new Vector3(0, 0, z);
+                heading = Tformplayer.transform.position - transform.position;
+                heading.Normalize();
+                animator.SetFloat("Xheading", heading.x);
+                animator.SetFloat("Yheading", heading.y);
+                rb.AddForce(heading * speed);
+                animator.SetBool("Firing", false);
             }
-             //playerDps.GetComponent<Player>().TakeDamage(Dps);
-            //player.GetComponent<player>().MyFunction()
-        }
+            else
+            {
+                heading = Tformplayer.transform.position - transform.position;
+                heading.Normalize();
+                animator.SetFloat("Xheading", heading.x);
+                animator.SetFloat("Yheading", heading.y);
 
-        if (HP <= 0)
-        {
-            Destroy(gameObject);
+                animator.SetBool("Firing", true);
+                UpdateTimer -= Time.deltaTime;
+                //firing.Play();
+
+                if (UpdateTimer < 0)
+                {
+                    firing.Play();
+                    UpdateTimer += UpdateTime;
+                    playerDps.GetComponent<Player>().TakeDamage(Dps);
+
+                }
+                 //playerDps.GetComponent<Player>().TakeDamage(Dps);
+                //player.GetComponent<player>().MyFunction()
+            }
+
+            if (HP <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }//end of update
 
@@ -81,6 +84,14 @@ public class AI : MonoBehaviour {
         HP -= dps;
     }
 
+    void StartAttacking()
+    {
+        atackPlayer = true;
+    }
 
+    void StopAttacking()
+    {
+        atackPlayer = false;
+    }
 
 }
