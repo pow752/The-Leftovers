@@ -51,7 +51,7 @@ public class Collision : MonoBehaviour
         displayHitPoints = buildingHitPoints / maxHitPoints;
         //hitPointBar.fillAmount = Mathf.Lerp(hitPointBar.fillAmount, displayHitPoints, Time.deltaTime * 2);
         //hitPointBar.transform.localScale = new Vector3(displayHitPoints, hitPointBar.transform.localScale.y, hitPointBar.transform.localScale.z);
-        if (buildingHitPoints <= 0&& exploshon)
+        if (buildingHitPoints <= 0 && exploshon)
         {
             Destruction();
         }
@@ -63,7 +63,6 @@ public class Collision : MonoBehaviour
             DestroyImmediate(hitPointBar, true);
 
             Destroy(gameObject);
-
 
         }
     }
