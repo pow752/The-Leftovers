@@ -7,6 +7,10 @@ public class Player : MonoBehaviour {
     public GameObject healthbar;
     public float HP = 10000;
     public float speed;
+    public AudioSource Atack1;
+    public AudioSource Atack2;
+    public AudioSource Atack3;
+    public AudioSource Atack4;
     // public Rigidbody2D rb;
     private Rigidbody2D rb;
     private BarScript hpbar;
@@ -48,12 +52,41 @@ public class Player : MonoBehaviour {
             // transform.position += Vector3.right * speed;
         }
 
-        if (Input.GetKey(KeyCode.P))
+        //atacks
+        if (Input.GetKey(KeyCode.Q))
         {
-            HP -= 1;
-            //rb.AddForce(Vector2.right * speed);
-            // transform.position += Vector3.right * speed;
+            if (!Atack1.isPlaying)
+            {
+                //trigger anamashon 
+                Atack1.Play();
+            }
         }
+        if (Input.GetKey(KeyCode.W))
+        {
+            if (!Atack2.isPlaying)
+            {
+                //trigger anamashon 
+                Atack2.Play();
+            }
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            //trigger anamashon 
+
+        }
+        if (Input.GetKey(KeyCode.R))
+        {
+            //trigger anamashon 
+
+
+        }//end of atacks
+
+        //if (Input.GetKey(KeyCode.P))
+        //{
+        //    HP -= 1;
+        //rb.AddForce(Vector2.right * speed);
+        // transform.position += Vector3.right * speed;
+        //  }
 
 
         if (HP <= 0)

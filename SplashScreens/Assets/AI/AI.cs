@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
 
+
+    public float HP=50;
     public float speed;
-    float UpdateTimer;
-    public float UpdateTime=2;
+    public float UpdateTime=2f;
     public bool atackPlayer = false;
-    public float Dps = 1.0f;
+    public float Dps = 1f;
+    public GameObject player;
+    public AudioSource firing;
+
+    /// <summary>
+    /// cats
+    /// </summary>
+  
+    private float UpdateTimer;
     private Player playerDps;
     private Transform Tformplayer;
-
-    public GameObject player;
-
     private Animator animator;
     private Vector2 heading;
 
@@ -51,17 +57,28 @@ public class AI : MonoBehaviour {
 
             animator.SetBool("Firing", true);
             UpdateTimer -= Time.deltaTime;
+            //firing.Play();
+
             if (UpdateTimer < 0)
             {
+                firing.Play();
                 UpdateTimer += UpdateTime;
                 playerDps.GetComponent<Player>().TakeDamage(Dps);
+
             }
              //playerDps.GetComponent<Player>().TakeDamage(Dps);
             //player.GetComponent<player>().MyFunction()
         }
-        
-       
 
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }//end of update
+
+    public void TakeDamage(float dps)
+    {
+        HP -= dps;
     }
 
 
