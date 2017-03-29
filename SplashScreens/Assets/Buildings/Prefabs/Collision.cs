@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class Collision : MonoBehaviour
 {
+    public AudioSource boom;
     public GameObject explosionPrefab;
     public GameObject debris;
     public Image hitPointBar;
     public float maxHitPoints = 1000;
     public float buildingHitPoints = 1000;
     public float displayHitPoints = 0;
+    bool exploshon = true;
 
 	// Use this for initialization
 	void Start ()
@@ -20,10 +22,18 @@ public class Collision : MonoBehaviour
 
     void Destruction()
     {
-        GameObject explode = Instantiate(explosionPrefab, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z), Quaternion.identity) as GameObject;
-        GameObject makeDebris = Instantiate(debris, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z), Quaternion.identity) as GameObject;
-        DestroyImmediate(hitPointBar, true);
-        Destroy(gameObject);
+        boom.Play();
+        if (exploshon)
+        {
+            GameObject explode = Instantiate(explosionPrefab, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z), Quaternion.identity) as GameObject;
+
+            exploshon = false;
+
+        }
+        // GameObject makeDebris = Instantiate(debris, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z), Quaternion.identity) as GameObject;
+        //  DestroyImmediate(hitPointBar, true);
+
+        //  Destroy(gameObject);
     }
 
     void Controls ()
@@ -41,7 +51,21 @@ public class Collision : MonoBehaviour
         displayHitPoints = buildingHitPoints / maxHitPoints;
         //hitPointBar.fillAmount = Mathf.Lerp(hitPointBar.fillAmount, displayHitPoints, Time.deltaTime * 2);
         //hitPointBar.transform.localScale = new Vector3(displayHitPoints, hitPointBar.transform.localScale.y, hitPointBar.transform.localScale.z);
-        if (buildingHitPoints <= 0) Destruction();
+        if (buildingHitPoints <= 0&& exploshon)
+        {
+            Destruction();
+        }
+
+
+        if (buildingHitPoints <= 0 && !boom.isPlaying)
+        {
+            GameObject makeDebris = Instantiate(debris, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z), Quaternion.identity) as GameObject;
+            DestroyImmediate(hitPointBar, true);
+
+            Destroy(gameObject);
+
+
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)

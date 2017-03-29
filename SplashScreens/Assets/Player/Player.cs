@@ -58,7 +58,7 @@ public class Player : MonoBehaviour {
             if (!Atack1.isPlaying)
             {
                 //trigger anamashon 
-                Atack1.Play();
+             //   Atack1.Play();
             }
         }
         if (Input.GetKey(KeyCode.W))
