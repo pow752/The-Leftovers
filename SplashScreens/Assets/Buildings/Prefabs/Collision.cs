@@ -62,6 +62,10 @@ public class Collision : MonoBehaviour
             GameObject makeDebris = Instantiate(debris, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z), Quaternion.identity) as GameObject;
             DestroyImmediate(hitPointBar, true);
 
+            GameObject RageBar = GameObject.Find("NoiseBar");
+            RageBar.SendMessage("ChangeValue", 20);
+
+            //GameObject.FindObject(NoiseBar)().value += 100;
             Destroy(gameObject);
 
         }
