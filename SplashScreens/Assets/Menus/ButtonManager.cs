@@ -6,7 +6,9 @@ public class ButtonManager : MonoBehaviour
 {
 
     public GameObject creditsWindow;
+    public GameObject controlsWindow;
     private bool showCredits;
+    private bool showControls;
 
     public void NewGame(string newGameLevel)
     {
@@ -29,6 +31,11 @@ public class ButtonManager : MonoBehaviour
         showCredits = !showCredits;
     }
 
+    public void Controls()
+    {
+        showControls = !showControls;
+    }
+
 
     public void Update()
     {
@@ -39,6 +46,15 @@ public class ButtonManager : MonoBehaviour
         else
         {
             creditsWindow.SetActive(false);
+        }
+
+        if (showControls)
+        {
+            controlsWindow.SetActive(true);
+        }
+        else
+        {
+            controlsWindow.SetActive(false);
         }
 
     }
