@@ -47,7 +47,6 @@ public class FullTankScript : MonoBehaviour {
     {
         GameObject shell = Instantiate(Resources.Load("TankShellPrefab")) as GameObject;
         TankBullet shellScript = shell.GetComponent<TankBullet>();
-        Debug.Log(heading);
         shell.GetComponent<Transform>().position = transform.position + new Vector3(heading.x,heading.y)*100;
         shellScript.angle = Mathf.Atan2((Tformplayer.transform.position.y - transform.position.y), (Tformplayer.transform.position.x - transform.position.x)) * Mathf.Rad2Deg + 180;
         shellScript.lifetime = 3;
