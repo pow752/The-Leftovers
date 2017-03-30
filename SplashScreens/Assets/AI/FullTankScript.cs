@@ -12,6 +12,8 @@ public class FullTankScript : MonoBehaviour {
     private Player playerDps;
     private Transform Tformplayer;
 
+    public float HP = 100;
+
     private static Vector2 barrelOffsetUp = new Vector2(1, 50);
     private static Vector2 barrelOffsetLeft = new Vector2(-80, 4);
     private static Vector2 barrelOffsetRight = new Vector2(80, 3);
@@ -51,6 +53,14 @@ public class FullTankScript : MonoBehaviour {
         shellScript.angle = Mathf.Atan2((Tformplayer.transform.position.y - transform.position.y), (Tformplayer.transform.position.x - transform.position.x)) * Mathf.Rad2Deg + 180;
         shellScript.lifetime = 3;
         shellScript.speed = 10;
+    }
+
+
+    void TakeDamage(float dps)
+    {
+        HP -= dps;
+        if (HP < 0)
+            Destroy(this.gameObject);
     }
 
     void FixedUpdate()

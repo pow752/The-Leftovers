@@ -7,16 +7,35 @@ public class Deaph : MonoBehaviour {
     private float Xpos;
     private int Zpos;
     public int offset = 0;
+    private Collider2D hitCollider;
 
+
+    void Start()
+    {
+        if (hitCollider == null)
+            hitCollider = GetComponent<BoxCollider2D>();
+        if (hitCollider == null)
+            hitCollider = GetComponent<CircleCollider2D>();
+        if (hitCollider == null)
+            hitCollider = GetComponent<PolygonCollider2D>();
+    }
 
     void FixedUpdate()
     {
-        Ypos = transform.position.y;
-        Xpos = transform.position.x;
-        Zpos = (int)transform.position.y + offset;
+        if(hitCollider != null)
+        {
+            Ypos = hitCollider.bounds.center.y;
+            Xpos = hitCollider.bounds.center.x;
+            Zpos = (int)hitCollider.bounds.center.y + offset;
+        }
+        else
+        {
+            Ypos = transform.position.y;
+            Xpos = transform.position.x;
+            Zpos = (int)transform.position.y + offset;
+        }
 
         GetComponent<SpriteRenderer>().sortingOrder = -Zpos;
-        //transform.position = new Vector3(Xpos, Ypos, Ypos);
     }
 
     void Update()

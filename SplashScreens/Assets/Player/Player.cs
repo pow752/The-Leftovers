@@ -119,7 +119,13 @@ public class Player : MonoBehaviour {
             {
                 triggerfeaild.SetActive(true);
 
-                triggerfeaild.transform.localPosition = new Vector2(anim.GetFloat("Xheading"),anim.GetFloat("Yheading"))/10000;
+
+                if(anim.GetFloat("Yheading") > 0)
+                    triggerfeaild.transform.localPosition = new Vector2(anim.GetFloat("Xheading"),anim.GetFloat("Yheading"))/10000 - new Vector2(0,0.5f);
+
+                if (anim.GetFloat("Yheading") < 0)
+                    triggerfeaild.transform.localPosition = new Vector2(anim.GetFloat("Xheading"), anim.GetFloat("Yheading")) / 10000 + new Vector2(0, 0.3f);
+
                 UpdateTimer -= Time.deltaTime;
                 if (UpdateTimer < 0)
                 {
