@@ -36,18 +36,18 @@ public class Collision : MonoBehaviour
         //  Destroy(gameObject);
     }
 
-    void Controls ()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            buildingHitPoints -= 100;
-        }
-    }
+   // void Controls ()
+   // {
+   //     if (Input.GetMouseButtonDown(0))
+   //     {
+    //        buildingHitPoints -= 100;
+    //    }
+   // }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        Controls();
+        //Controls();
         displayHitPoints = buildingHitPoints / maxHitPoints;
         //hitPointBar.fillAmount = Mathf.Lerp(hitPointBar.fillAmount, displayHitPoints, Time.deltaTime * 2);
         //hitPointBar.transform.localScale = new Vector3(displayHitPoints, hitPointBar.transform.localScale.y, hitPointBar.transform.localScale.z);
@@ -71,12 +71,17 @@ public class Collision : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "")   // If the building collides with the player.
-        {
-            buildingHitPoints -= 100;
-        }
+   // void OnCollisionEnter2D(Collision2D col)
+  //  {
+   //     if (col.gameObject.tag == "")   // If the building collides with the player.
+    //    {
+     //       buildingHitPoints -= 100;
+    //    }
         
+  //  }
+
+    public void TakeDamage(float dps)
+    {
+        buildingHitPoints -= dps;
     }
 }

@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    bool dying;
     public GameObject healthbar;
     public float HP = 10000;
     public float speed;
+    public float UpdateTime = 0.75f;
     public AudioSource Atack1;
     public AudioSource Atack2;
     public AudioSource Atack3;
     public AudioSource Atack4;
     // public Rigidbody2D rb;
+
+    private float UpdateTimer;
     private Rigidbody2D rb;
     private BarScript hpbar;
-
-    bool dying;
-
     private Vector2 heading;
-    
     private Animator anim;
+    public GameObject triggerfeaild;
+    
+    bool atacking = false;
 
     void Start()
     {
@@ -29,6 +32,7 @@ public class Player : MonoBehaviour {
         hpbar.maxValue = HP;
         hpbar.value = HP;
         anim = GetComponent<Animator>();
+
     }
 
 
@@ -77,13 +81,19 @@ public class Player : MonoBehaviour {
                 anim.SetBool("Walking", false);
             }
 
+
+
+
             //atacks
             if (Input.GetKey(KeyCode.Q))
             {
                 if (!Atack1.isPlaying)
                 {
                     //trigger anamashon 
-                 //   Atack1.Play();
+                    anim.SetBool("Attacking", true);
+                    Atack1.Play();
+                    UpdateTimer = UpdateTime;
+                    atacking = true;
                 }
             }
             if (Input.GetKey(KeyCode.W))
@@ -91,20 +101,45 @@ public class Player : MonoBehaviour {
                 if (!Atack2.isPlaying)
                 {
                     //trigger anamashon 
-                    Atack2.Play();
+                    //Atack2.Play();
                 }
             }
             if (Input.GetKey(KeyCode.E))
             {
                 //trigger anamashon 
-                anim.SetBool("Attacking", true);
+                
             }
             if (Input.GetKey(KeyCode.R))
             {
                 //trigger anamashon 
 
 
-            }//end of atacks
+            }
+            if (atacking)
+            {
+                triggerfeaild.SetActive(true);
+
+                triggerfeaild.transform.localPosition = new Vector2(anim.GetFloat("Xheading"),anim.GetFloat("Yheading"))/10000;
+                UpdateTimer -= Time.deltaTime;
+                if (UpdateTimer < 0)
+                {
+                    //UpdateTimer += UpdateTime;
+                    anim.SetBool("Attacking", false);
+                    atacking = false;
+
+                }
+                //playerDps.GetComponent<Player>().TakeDamage(Dps);
+                //firing.Play();  UpdateTimer < 0 && 
+
+            }
+            else
+            {
+                triggerfeaild.SetActive(false);
+                triggerfeaild.transform.localPosition = new Vector2(0, 0);
+
+            }
+
+            //end of atacks
 
             //if (Input.GetKey(KeyCode.P))
             //{
@@ -130,4 +165,5 @@ public class Player : MonoBehaviour {
         HP -= dps;
         hpbar.SetValue(HP);
     }
+
 }
