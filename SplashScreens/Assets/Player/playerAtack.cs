@@ -9,7 +9,7 @@ public class playerAtack : MonoBehaviour {
 
         if (other.gameObject.tag == "BADThings")
         {
-            other.gameObject.SendMessage("TakeDamage", 9.0f);
+            other.gameObject.SendMessage("TakeDamage", 9999.0f);
 
             // GameObject.Find("badguy").GetComponent<Ai>().seePlayer = true;
         }
