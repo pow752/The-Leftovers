@@ -5,6 +5,9 @@ using UnityEngine;
 public class levletranshon : MonoBehaviour {
     public float UpdateTime;
     public GameObject fade;
+    public GameObject ShitBar;
+    public GameObject text;
+
     public int swich = 0;
     public int nextlv = 0;
 
@@ -20,6 +23,14 @@ public class levletranshon : MonoBehaviour {
 	
 	void Update () {
 
+        if (ShitBar.GetComponent<BarScript>().value == ShitBar.GetComponent<BarScript>().maxValue)
+        {
+            text.SetActive(true);
+            if (Input.GetKey(KeyCode.Space))
+            {
+                swich = 2;
+            }
+        }
 
         if (swich==1)
         {
