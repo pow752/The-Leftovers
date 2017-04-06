@@ -1,0 +1,55 @@
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 970M (ID=0x13d8)
+    Vendor:   NVIDIA
+    VRAM:     3040 MB
+    Driver:   21.21.13.7654
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Kevin Goguen\Documents\GitHub\The-Leftovers\WrapUp\Sleepless_Final_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Kevin Goguen\Documents\GitHub\The-Leftovers\WrapUp\Sleepless_Final_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Kevin Goguen\Documents\GitHub\The-Leftovers\WrapUp\Sleepless_Final_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Kevin Goguen\Documents\GitHub\The-Leftovers\WrapUp\Sleepless_Final_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Kevin Goguen\Documents\GitHub\The-Leftovers\WrapUp\Sleepless_Final_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Kevin Goguen\Documents\GitHub\The-Leftovers\WrapUp\Sleepless_Final_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Kevin Goguen\Documents\GitHub\The-Leftovers\WrapUp\Sleepless_Final_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Kevin Goguen\Documents\GitHub\The-Leftovers\WrapUp\Sleepless_Final_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Kevin Goguen\Documents\GitHub\The-Leftovers\WrapUp\Sleepless_Final_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Kevin Goguen\Documents\GitHub\The-Leftovers\WrapUp\Sleepless_Final_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.025 seconds
+Platform assembly: C:\Users\Kevin Goguen\Documents\GitHub\The-Leftovers\WrapUp\Sleepless_Final_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Kevin Goguen\Documents\GitHub\The-Leftovers\WrapUp\Sleepless_Final_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 3.314411 ms
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.619141 ms
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1004.
+Total: 5.355745 ms (FindLiveObjects: 0.045996 ms CreateObjectMapping: 0.030791 ms MarkObjects: 0.262294 ms  DeleteObjects: 5.015903 ms)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.479352 ms
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 1717.
+Total: 0.568304 ms (FindLiveObjects: 0.068424 ms CreateObjectMapping: 0.050938 ms MarkObjects: 0.374434 ms  DeleteObjects: 0.074126 ms)
+
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.934375 ms
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 1677.
+Total: 0.673982 ms (FindLiveObjects: 0.081349 ms CreateObjectMapping: 0.049417 ms MarkObjects: 0.393821 ms  DeleteObjects: 0.149013 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.650413 ms
+
+Unloading 282 unused Assets to reduce memory usage. Loaded Objects now: 335.
+Total: 5.222317 ms (FindLiveObjects: 0.043715 ms CreateObjectMapping: 0.025089 ms MarkObjects: 0.199571 ms  DeleteObjects: 4.953940 ms)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 1eec -> priority: 1 
+  Thread -> id: 1e6c -> priority: 1 
