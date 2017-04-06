@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class levletranshon : MonoBehaviour {
     public float UpdateTime;
@@ -9,7 +10,7 @@ public class levletranshon : MonoBehaviour {
     public GameObject text;
 
     public int swich = 0;
-    public int nextlv = 0;
+    public string nextlv = "";
 
 
     public float alfa =1;
@@ -70,7 +71,7 @@ public class levletranshon : MonoBehaviour {
             if (alfa >= 1.001)
             {
                 swich = 0;
-                Application.LoadLevel(nextlv);
+                SceneManager.LoadScene(nextlv);
             }
         }
 

@@ -11,8 +11,8 @@ public class Player : MonoBehaviour {
     public float UpdateTime = 0.75f;
     public AudioSource Atack1;
     public AudioSource Atack2;
-    public AudioSource Atack3;
-    public AudioSource Atack4;
+    public AudioSource Roar1;
+    public AudioSource Roar2;
     // public Rigidbody2D rb;
 
     private float UpdateTimer;
@@ -42,6 +42,24 @@ public class Player : MonoBehaviour {
         heading = new Vector2(0, 0);
         if(!dying)
         {
+            if(!Roar1.isPlaying && !Roar2.isPlaying)
+            {
+                if (Random.value < 0.01f)
+                {
+                    if(Random.value > 0.5f)
+                    {
+                        Roar1.Play();
+                        Roar1.volume = 0.4f;
+                    }
+                    else
+                    {
+                        Roar2.Play();
+                        Roar2.volume = 0.4f;
+                    }
+                }
+            }
+
+
 
             if (Input.GetKey(KeyCode.UpArrow))
             {
@@ -87,12 +105,34 @@ public class Player : MonoBehaviour {
             //atacks
             if (Input.GetKey(KeyCode.Q))
             {
-                if (!Atack1.isPlaying)
+                if (!Atack1.isPlaying && !Atack2.isPlaying)
                 {
                     //trigger anamashon 
                     anim.SetBool("Attacking", true);
-                    Atack1.Play();
-                    Atack1.volume = 0.3f;
+                    if(Random.value > 0.5f)
+                    {
+                        Atack1.Play();
+                        Atack1.volume = 0.4f;
+                    }
+                    else
+                    {
+                        Atack2.Play();
+                        Atack2.volume = 0.4f;
+                    }
+
+                    if (!Roar1.isPlaying && !Roar2.isPlaying)
+                    {
+                        if (Random.value > 0.5f)
+                        {
+                            Roar1.Play();
+                            Roar1.volume = 0.4f;
+                        }
+                        else
+                        {
+                            Roar2.Play();
+                            Roar2.volume = 0.4f;
+                        }
+                    }
                     UpdateTimer = UpdateTime;
                     atacking = true;
                 }
